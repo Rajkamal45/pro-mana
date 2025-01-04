@@ -1,3 +1,4 @@
+// context/AuthContext.tsx
 
 'use client'
 
@@ -23,7 +24,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const getSession = async () => {
       const { data, error } = await supabase.auth.getSession()
       if (error) {
-        console.error('Error fetching session:', error)
+        console.error('Error fetching session:', error.message)
       }
       setUser(data.session?.user ?? null)
       setLoading(false)
