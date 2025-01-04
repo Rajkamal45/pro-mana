@@ -1,6 +1,7 @@
-// app/layout.tsx
-import './globals.css'  // Import Tailwind's global styles
+
+import './globals.css'
 import { ReactNode } from 'react'
+import { AuthProvider } from '@/context/AuthContext'
 
 export const metadata = {
   title: 'Your App Title',
@@ -10,8 +11,8 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-white text-black"> {/* You can add Tailwind classes here */}
-        {children}
+      <body>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   )
